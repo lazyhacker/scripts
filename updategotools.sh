@@ -30,5 +30,6 @@ go get -u github.com/jstemmer/gotags
 echo "Updating Motion"
 go get -u github.com/fatih/motion
 
-#go get -u github.com/zmb3/gogetdoc
+echo "Update gogetdoc"
+go get -u github.com/zmb3/gogetdoc
 #go get -u github.com/josharian/impl
