@@ -284,3 +284,7 @@ nohup.out
 # ccache, remove cache but keep config
 .ccache/?
 .ccache/tmp
+
+
+# VIM temp files
+*.swp

@@ -8,6 +8,12 @@ fi
 if [[ -z ${BACKUP_DRIVE} ]]; then
     echo 'BACKUP_DRIVE not set.  Aborting...'
 else
-    echo 'Backing up to ' $BACKUP_DRIVE '/' $USER
-    rsync -aP --exclude-from=rsync-homedir-excludes.txt  /home/$USER $BACKUP_DRIVE/$USER
+
+    if [ "$1" == full ]; then
+        echo 'Backing up to ' $BACKUP_DRIVE'/'$USER/`date +%F`
+        rsync -aP --exclude-from=rsync-homedir-excludes.txt  /home/$USER $BACKUP_DRIVE/$USER/`date +%F`
+    else
+        echo 'Backing up to ' $BACKUP_DRIVE'/'$USER/current
+        rsync -aP --exclude-from=rsync-homedir-excludes.txt  /home/$USER $BACKUP_DRIVE/$USER/current
+    fi
 fi
