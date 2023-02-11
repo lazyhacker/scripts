@@ -2,6 +2,9 @@
 
 export GO111MODULE=on
 
+# https://github.com/fatih/vim-go/blob/master/plugin/go.vim has some good
+# Go tools to consider.
+
 declare -a tools=(
 github.com/davidrjenni/reftools/cmd/fillstruct@master
 github.com/fatih/gomodifytags@latest
