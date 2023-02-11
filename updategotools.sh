@@ -2,48 +2,38 @@
 
 export GO111MODULE=on
 
-echo "Updating GoCode"
-go get -u github.com/nsf/gocode
+declare -a tools=(
+github.com/davidrjenni/reftools/cmd/fillstruct@master
+github.com/fatih/gomodifytags@latest
+github.com/fatih/motion@latest
+github.com/go-delve/delve/cmd/dlv@latest
+github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+github.com/josharian/impl@main
+# github.com/jstemmer/gotags@latest
+github.com/jstemmer/gotags@master
+github.com/kisielk/errcheck@latest
+github.com/klauspost/asmfmt/cmd/asmfmt@latest
+github.com/koron/iferr@master
+github.com/mgechev/revive@latest
+github.com/nsf/gocode@latest
+github.com/rogpeppe/godef@latest
+github.com/zmb3/gogetdoc@latest
+golang.org/x/lint/golint@latest
+golang.org/x/tools/cmd/godoc@latest
+# golang.org/x/tools/cmd/goimports@latest
+golang.org/x/tools/cmd/goimports@master
+# golang.org/x/tools/cmd/gorename@latest
+golang.org/x/tools/cmd/gorename@master
+# golang.org/x/tools/cmd/guru@latest
+golang.org/x/tools/cmd/guru@master
+golang.org/x/tools/cmd/present@latest 
+golang.org/x/tools/gopls@latest
+honnef.co/go/tools/cmd/keyify@master
+honnef.co/go/tools/cmd/staticcheck@latest
+)
 
-#go get -u github.com/alecthomas/gometalinter
-
-echo "Updating GoImports"
-go get golang.org/x/tools/cmd/goimports@master
-
-echo "Updating Guru"
-go get golang.org/x/tools/cmd/guru@master
-
-echo "Updating GoRename"
-go get golang.org/x/tools/cmd/gorename@master
-
-echo "Updating GoLint"
-go get golang.org/x/lint/golint@master
-
-echo "Updating GoDef"
-go get github.com/rogpeppe/godef@master
-
-echo "Updating ErrCheck"
-go get github.com/kisielk/errcheck@master
-
-echo "Updating GoTags"
-go get github.com/jstemmer/gotags@master
-#go get -u github.com/klauspost/asmfmt/cmd/asmfmt
-
-echo "Updating Motion"
-go get github.com/fatih/motion@master
-
-echo "Update gogetdoc"
-go get github.com/zmb3/gogetdoc@master
-#go get -u github.com/josharian/impl
-
-echo "Update gopls"
-go get golang.org/x/tools/gopls@latest
-
-echo "Update gomodifytags"
-go get github.com/fatih/gomodifytags@master
-
-echo "Update present"
-go get golang.org/x/tools/cmd/present 
-
-#go get github.com/ChimeraCoder/gojson/gojson
-
+for i in "${tools[@]}"
+do
+    echo $i
+	go install $i
+done
