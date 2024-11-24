@@ -9,16 +9,16 @@
 output=$(getgo)
 
 if [ -z "${output}" ]; then
-    echo "no output"
+    exit 0
 else
-    read -p "Removing /usr/local/go.  Are you sure? " -n 1 -r
+    read -p "Removing /usr/local/go.  Are you sure? (Y|y)" -n 1 -r
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         sudo rm -rf /usr/local/go
     fi
 
-    read -p "Install downloaded file to /usr/local/go? " -n 1 -r go_install
+    read -p "Install downloaded file to /usr/local/go? (Y|y)" -n 1 -r go_install
     echo    # (optional) move to a new line
     if [[ $go_install =~ ^[Yy]$ ]]
     then
