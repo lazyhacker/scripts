@@ -5,9 +5,9 @@ if [ ! -f rsync-rootdir-excludes.txt ]; then
     exit 1
 fi
 
-if [[ -z ${BACKUP_DRIVE} ]]; then
-    echo 'BACKUP_DRIVE not set.  Aborting...'
+if [[ -z $1 ]]; then
+    echo 'Need path to backup directory.  Aborting...'
 else
-    echo 'Backing up to '$BACKUP_DRIVE'system/Fedora'`cat /etc/system-release | grep -ow -E [[:digit:]]+` 
-    rsync -aAXv / --exclude-from=rsync-rootdir-excludes.txt $BACKUP_DRIVE/system/Fedora`cat /etc/system-release | grep -ow -E [[:digit:]]+`
+    echo 'Backing up to '$1'system/Fedora'`cat /etc/system-release | grep -ow -E [[:digit:]]+` 
+    rsync -aAXv / --exclude-from=rsync-rootdir-excludes.txt $1/system/Fedora`cat /etc/system-release | grep -ow -E [[:digit:]]+`
 fi

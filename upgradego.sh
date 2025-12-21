@@ -9,6 +9,7 @@
 output=$(getgo)
 
 if [ -z "${output}" ]; then
+    echo "No new version."
     exit 0
 else
     read -p "Removing /usr/local/go.  Are you sure? (Y|y)" -n 1 -r
