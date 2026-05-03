@@ -33,6 +33,7 @@ golang.org/x/tools/cmd/present@latest
 golang.org/x/tools/gopls@latest
 honnef.co/go/tools/cmd/keyify@master
 honnef.co/go/tools/cmd/staticcheck@latest
+github.com/shurcooL/markdownfmt@latest
 )
 
 for i in "${tools[@]}"
