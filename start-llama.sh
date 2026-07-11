@@ -4,6 +4,13 @@
 # llama.cpp Podman Environment Setup Script
 # ==========================================
 
+# Prerequisite
+#   sudo dnf install golang-github-nvidia-container-toolkit
+#
+#   # Generate the CDI spec file (this is required for Podman to detect the GPU)
+#   sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
+
+
 # Configuration Variables
 MODEL_DIR="$HOME/ai-models"
 MODEL_FILENAME="gemma-4-E4B-it-Q8_0.gguf"
